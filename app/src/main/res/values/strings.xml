@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">CountryList</string>
+    <string name="plz_check_internet">Please check your internet connection</string>
+    <string name="went_wrong">Something went wrong</string>
+    <string name="error">error</string>
+    <string name="no_data">No data found</string>
+    <string name="data_loading">No internet connection,Data is loading from the cache memory</string>
+    <string name="network_fail">Network fail</string>
 
 </resources>

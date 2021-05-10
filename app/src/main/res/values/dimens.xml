@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    //recycler card view
+    <dimen name="elevation_card">5dp</dimen>
+    <dimen name="heading_size">15sp</dimen>
+    <dimen name="padding_common">5dp</dimen>
+    <dimen name="relative_padding">10dp</dimen>
+    <dimen name="image_height">50dp</dimen>
+    <dimen name="image_width">80dp</dimen>
+
+</resources>
