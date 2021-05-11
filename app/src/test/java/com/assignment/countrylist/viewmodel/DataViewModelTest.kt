@@ -20,7 +20,7 @@ import org.mockito.junit.MockitoRule
 
 @Suppress("DEPRECATION")
 @RunWith(MockitoJUnitRunner::class)
-class DataviaModelTest {
+class DataViewModelTest {
     private val application = Mockito.mock(Application::class.java)
 
     @Mock
