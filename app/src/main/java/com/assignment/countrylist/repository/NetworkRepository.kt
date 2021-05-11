@@ -29,12 +29,12 @@ class NetworkRepository {
                         })
             )
         }
-            return DatabaseRepository.getAllCountry(context)
-        }
+        return DatabaseRepository.getAllCountry(context)
+    }
 
-        fun loadTitle(context: Context): LiveData<String> {
-            return DatabaseRepository.getTitle(context)
-
-        }
+    fun loadTitle(context: Context): LiveData<String> {
+        return DatabaseRepository.getTitle(context)
 
     }
+
+}

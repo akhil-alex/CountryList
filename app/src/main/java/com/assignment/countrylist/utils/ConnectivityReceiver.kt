@@ -16,17 +16,17 @@ class ConnectivityReceiver : BroadcastReceiver() {
 
         }}
 
-        private fun isConnectedOrConnecting(context: Context): Boolean {
-            val connMgr =
-                context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            val networkInfo = connMgr.activeNetworkInfo
-            return networkInfo != null && networkInfo.isConnectedOrConnecting
-        }
+    private fun isConnectedOrConnecting(context: Context): Boolean {
+        val connMgr =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfo = connMgr.activeNetworkInfo
+        return networkInfo != null && networkInfo.isConnectedOrConnecting
+    }
 
-            interface ConnectivityReceiverListener {
-                fun onNetworkConnectionChanged(isconnected: Boolean)
-            }
-            companion object {
-                var connectivityReceiverListener: ConnectivityReceiverListener? = null
-            }
-        }
+    interface ConnectivityReceiverListener {
+        fun onNetworkConnectionChanged(isconnected: Boolean)
+    }
+    companion object {
+        var connectivityReceiverListener: ConnectivityReceiverListener? = null
+    }
+}

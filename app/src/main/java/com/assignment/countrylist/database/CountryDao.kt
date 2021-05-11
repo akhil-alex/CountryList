@@ -19,5 +19,5 @@ interface CountryDao {
     @Insert
     fun insertTitle(title: DataModels)
     @Query("SELECT title FROM DataModels ")
-        fun getTitle() : LiveData<String>
+    fun getTitle() : LiveData<String>
 }

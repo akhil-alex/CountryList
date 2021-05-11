@@ -15,7 +15,7 @@ class Utils {
             val capabilities = connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
             if (capabilities != null) {
                 when {
-                     capabilities.hasTransport (NetworkCapabilities.TRANSPORT_CELLULAR) -> {
+                    capabilities.hasTransport (NetworkCapabilities.TRANSPORT_CELLULAR) -> {
                         return true
                     }
                     capabilities.hasTransport(NetworkCapabilities. TRANSPORT_WIFI) -> {
@@ -24,17 +24,17 @@ class Utils {
 
                     }
                     capabilities. hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> {
-                            return true
+                        return true
+                    }
                 }
             }
+        } else {
+            val activeNetworkInfo = connectivityManager.activeNetworkInfo
+            if (activeNetworkInfo != null && activeNetworkInfo.isConnected) {
+                return true
+            }
         }
-    } else {
-        val activeNetworkInfo = connectivityManager.activeNetworkInfo
-        if (activeNetworkInfo != null && activeNetworkInfo.isConnected) {
-            return true
-        }
-    }
-return false
+        return false
 
-}
+    }
 }
