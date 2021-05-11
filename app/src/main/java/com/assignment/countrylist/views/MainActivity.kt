@@ -10,19 +10,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(findViewById(R.id.toolbar))
+        supportActionBar?.hide()
         fragment= CountryListFragment()
         replaceFragment(fragment as CountryListFragment)
     }
 
     private fun replaceFragment(fragment: CountryListFragment) //fragment replace
     {
-        val transaction=supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.frame_layout,fragment)
-        transaction.commit()
+        supportFragmentManager.beginTransaction().replace(R.id.frame_layout,fragment).commit()
     }
-    fun setActionBarTitle(title:String) //set action bar title
-    {
-        this.supportActionBar?.title=title
-    }
+
 }

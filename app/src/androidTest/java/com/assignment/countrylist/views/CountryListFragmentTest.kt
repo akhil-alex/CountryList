@@ -21,7 +21,7 @@ class CountryListFragmentTest {
 
     @Before
     fun setup() {
-        scenario = launchFragmentInContainer(themeResId = R.style.ThemeOverlay_AppCompat)
+        scenario = launchFragmentInContainer(themeResId = R.style.Theme_CountryList_NoActionBar)
         scenario.moveToState(Lifecycle.State.STARTED)
     }
 
@@ -36,7 +36,22 @@ class CountryListFragmentTest {
     }
 
     @Test
-    fun testEventFragment() {
+    fun testCountryListFragmen() {
         scenario.moveToState(Lifecycle.State.CREATED)
     }
+
+    @Test
+    fun testLifeCycle() {
+            val scenario = launchFragmentInContainer<CountryListFragment>()
+            scenario.moveToState(Lifecycle.State.CREATED)
+            // EventFragment moves from RESUMED -> STARTED -> CREATED
+        }
+    @Test fun testreCreateFragment() {
+        val scenario = launchFragmentInContainer<CountryListFragment>()
+        scenario.recreate()
+
+    }
+
+
+
 }

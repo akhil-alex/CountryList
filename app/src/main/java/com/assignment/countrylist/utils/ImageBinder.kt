@@ -8,5 +8,5 @@ import com.squareup.picasso.Picasso
 @BindingAdapter("imageUrl","error")
 internal fun loadImage(view:ImageView,url:String,error:Drawable)
 {
-    Picasso.get().load(url).error(error).into(view)
+    Picasso.get().load(url).fit().error(error).into(view)
 }

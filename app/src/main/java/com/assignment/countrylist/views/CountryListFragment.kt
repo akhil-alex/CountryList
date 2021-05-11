@@ -37,7 +37,9 @@ class CountryListFragment:Fragment(), ConnectivityReceiver.ConnectivityReceiverL
 
     private lateinit var swipeContainer: SwipeRefreshLayout
     private lateinit var textNoData: TextView
+    private lateinit var textActionBar:TextView
     private var isConnected = true
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -52,6 +54,7 @@ class CountryListFragment:Fragment(), ConnectivityReceiver.ConnectivityReceiverL
         progressBar = view.findViewById(R.id.progressbar)
         swipeContainer = view.findViewById(R.id.swipe_refresh)
         textNoData = view.findViewById(R.id.tv_nodata)
+        textActionBar=view.findViewById(R.id.action_bar)
         mutablelist = MutableLiveData<List<Row>>()
         initializeRecyclerView()
         dataViewModel= ViewModelProviders.of( this).get(DataViewModel::class.java)
@@ -59,8 +62,10 @@ class CountryListFragment:Fragment(), ConnectivityReceiver.ConnectivityReceiverL
     }
 
     private fun observeData() { //observe the view model data
-        progressBar.visibility = View.VISIBLE
+
+
         dataViewModel.getCountries()
+        dataViewModel.listofData
             .observe(this, {
                 setObserveData(it)
             })
@@ -98,18 +103,23 @@ class CountryListFragment:Fragment(), ConnectivityReceiver.ConnectivityReceiverL
         }
         dataAdapter = DataAdapter(datalist)
         binding.dataadapter = dataAdapter
-        Handler().postDelayed({ progressBar.visibility = View.GONE }, 1000)
+        Handler().postDelayed({
+            swipeContainer.isRefreshing = false
+            progressBar.visibility = View.GONE }, 1000)
     }
 
     private fun updateActionBar() //actionbar title update
     {
         dataViewModel.updateActionBarTitle().observe(this, {
-            (activity as MainActivity?)?.setActionBarTitle(it ?: getString(R.string.app_name))
+            textActionBar.text = it ?: getString(R.string.app_name)
+
+
         })
     }
 
     override fun onNetworkConnectionChanged(isconnected: Boolean) {
         this.isConnected = isconnected
+            progressBar.visibility = View.VISIBLE
         observeData()
 
 
@@ -119,8 +129,9 @@ class CountryListFragment:Fragment(), ConnectivityReceiver.ConnectivityReceiverL
         super.onResume()
         ConnectivityReceiver.connectivityReceiverListener = this
         swipeContainer.setOnRefreshListener {
-            swipeContainer.isRefreshing = false
             observeData()
+
+
         }
     }
 }
