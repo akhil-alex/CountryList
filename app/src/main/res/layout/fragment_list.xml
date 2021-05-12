@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        tools:ignore="MissingConstraints"
+        tools:ignore="MissingConstraints,RtlSymmetry"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:textSize="@dimen/text_size"
