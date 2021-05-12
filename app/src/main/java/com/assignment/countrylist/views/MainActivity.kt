@@ -10,6 +10,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
         fragment= CountryListFragment()
-        supportFragmentManager.beginTransaction().replace(R.id.frame_layout,fragment).commit()
+        supportFragmentManager.beginTransaction().apply{replace(R.id.frame_layout,fragment).commit()}
     }
 }

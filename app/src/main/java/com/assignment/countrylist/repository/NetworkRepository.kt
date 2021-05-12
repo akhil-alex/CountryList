@@ -23,8 +23,7 @@ class NetworkRepository {
                     },
                         { t ->
                             Toast.makeText(context, t.toString(), Toast.LENGTH_LONG).show()
-                        })
-            )
+                        }))
         }
         return DatabaseRepository.getAllCountry(context)
     }
