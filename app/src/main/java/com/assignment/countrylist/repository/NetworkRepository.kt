@@ -1,5 +1,4 @@
 package com.assignment.countrylist.repository
-
 import android.content.Context
 import android.widget.Toast
 import androidx.lifecycle.LiveData
@@ -9,9 +8,7 @@ import com.assignment.countrylist.utils.Utils
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-
 class NetworkRepository {
-
     fun loadCountries(context: Context): LiveData<List<Row>>? {
         val utils = Utils()
         if (utils.isNetworkAvailable(context)) {
@@ -31,10 +28,7 @@ class NetworkRepository {
         }
         return DatabaseRepository.getAllCountry(context)
     }
-
     fun loadTitle(context: Context): LiveData<String> {
         return DatabaseRepository.getTitle(context)
-
     }
-
 }

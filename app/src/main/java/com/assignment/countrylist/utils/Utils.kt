@@ -1,13 +1,10 @@
 package com.assignment.countrylist.utils
-
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
-
 @Suppress("DEPRECATION")
 class Utils {
-
     fun isNetworkAvailable(context: Context?): Boolean {
         if (context == null) return false
         val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -19,9 +16,7 @@ class Utils {
                         return true
                     }
                     capabilities.hasTransport(NetworkCapabilities. TRANSPORT_WIFI) -> {
-
                         return true
-
                     }
                     capabilities. hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) -> {
                         return true
@@ -35,6 +30,5 @@ class Utils {
             }
         }
         return false
-
     }
 }

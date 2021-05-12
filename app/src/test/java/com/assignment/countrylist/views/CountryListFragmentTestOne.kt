@@ -14,35 +14,28 @@ import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.junit.MockitoJUnit
 import org.mockito.junit.MockitoRule
-
 class CountryListFragmentTestOne
 {
     private val application = Mockito.mock(Application::class.java)
     private var listData: MutableLiveData<List<Row>> = MutableLiveData<List<Row>>()
-
     @Mock
     var dataViewModel: DataViewModel = DataViewModel(application)
     @Mock
     var countryListFragment: CountryListFragment = CountryListFragment()
-
     @Rule
     @JvmField
     var instantTaskExecutorRule = InstantTaskExecutorRule()
-
     @Rule
     @JvmField
     var initRule: MockitoRule = MockitoJUnit.rule()
-
     @Before
     fun setup() {
         val listData: MutableLiveData<List<Row>> = MutableLiveData<List<Row>>()
         val datarrayList = arrayListOf<Row>()
-        val row = Row("akl", "88", "Egh", 1)
+        val row = Row("testDescription", "https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png","testTitle", 1)
         datarrayList.add(row)
         listData.postValue(datarrayList)
     }
-
-
     @Test(expected = RuntimeException::class)
     fun test_throwsException() {
         Mockito.`when`(countryListFragment.viewLifecycleOwnerLiveData).thenThrow(RuntimeException::class.java)
@@ -56,7 +49,4 @@ class CountryListFragmentTestOne
             CoreMatchers.`is`(CoreMatchers.notNullValue())
         )
     }
-
-
-
 }

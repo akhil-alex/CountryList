@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,79 +9,66 @@
             name="dataModel"
             type="com.assignment.countrylist.model.Row" />
     </data>
-
-
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="@dimen/elevation_card"
         android:background="@color/gray"
         tools:ignore="MissingConstraints"
         tools:targetApi="lollipop">
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/gray"
-            android:padding="@dimen/relative_padding">
+            android:padding="@dimen/padding_common"
+            android:background="@color/gray">
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
                 android:id="@+id/img_arrow"
-                android:src="@drawable/ic_keyboard_arrow_right_24px"
-                android:layout_alignParentEnd="true"
-                tools:ignore="ContentDescription" />
-            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@+id/img_arrow"
-                android:layout_toStartOf="@+id/img_arrow"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tv_heading"
-                    android:paddingRight="@dimen/padding_common"
-                    android:paddingLeft="@dimen/padding_common"
-                    android:textColor="@color/purple_700"
-                    android:textSize="@dimen/heading_size"
-                    android:text="@{dataModel.title!=null ? dataModel.title :@string/app_name}"/>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tv_heading">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tv_description"
-                        android:layout_toLeftOf="@+id/img_thumbnail"
-                        android:gravity="start"
-                        android:minHeight="@dimen/image_height"
-                        android:paddingLeft="@dimen/padding_common"
-                        android:paddingRight="@dimen/padding_common"
-                        android:text="@{dataModel.description!=null?dataModel.description:@string/app_name}"
-                        android:textColor="@color/black"
-                        android:layout_toStartOf="@+id/img_thumbnail"
-                        />
-                    <ImageView
-                        android:layout_width="@dimen/image_width"
-                        android:layout_height="@dimen/image_height"
-                        android:id="@+id/img_thumbnail"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignBottom="@+id/tv_description"
-                        android:scaleType="centerCrop"
-                        app:imageUrl="@{dataModel.imageHref!=null?dataModel.imageHref:@string/image_issue}"
-                        app:error="@{@drawable/error}"
-                        tools:ignore="ContentDescription" />
-                </RelativeLayout>
-            </RelativeLayout>
-
-        </RelativeLayout>
-
+                android:src="@drawable/ic_keyboard_arrow_right_24px"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/img_thumbnail"
+                app:layout_constraintTop_toTopOf="@+id/img_thumbnail"
+                tools:ignore="ContentDescription" />
+            <TextView
+                android:id="@+id/tv_heading"
+                android:layout_width="@dimen/swipe_height"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/padding_common"
+                android:paddingRight="@dimen/padding_common"
+                android:text="@{dataModel.title!=null ? dataModel.title :@string/app_name}"
+                android:textColor="@color/purple_700"
+                android:textSize="@dimen/heading_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="@dimen/swipe_height"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:paddingLeft="@dimen/padding_common"
+                android:paddingRight="@dimen/padding_common"
+                android:minHeight="@dimen/image_height"
+                android:text="@{dataModel.description!=null?dataModel.description:@string/app_name}"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/img_thumbnail"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_heading" />
+            <ImageView
+                android:id="@+id/img_thumbnail"
+                android:layout_width="@dimen/image_width"
+                android:layout_height="@dimen/image_height"
+                android:scaleType="centerCrop"
+                app:error="@{@drawable/error}"
+                app:imageUrl="@{dataModel.imageHref!=null?dataModel.imageHref:@string/image_issue}"
+                app:layout_constraintEnd_toStartOf="@+id/img_arrow"
+                app:layout_constraintStart_toEndOf="@+id/tv_description"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:ignore="ContentDescription" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-
 </layout>

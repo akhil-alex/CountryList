@@ -1,5 +1,4 @@
 package com.assignment.countrylist.database
-
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
@@ -7,7 +6,6 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.assignment.countrylist.model.DataModels
 import com.assignment.countrylist.model.Row
-
 @Dao
 interface CountryDao {
     @Query(  "SELECT * FROM `Row` ")
