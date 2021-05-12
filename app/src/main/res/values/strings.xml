@@ -7,5 +7,4 @@
     <string name="data_loading">No internet connection,Data is loading from the cache memory</string>
     <string name="network_fail">Network fail</string>
     <string name="image_issue">https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png</string>
-
 </resources>

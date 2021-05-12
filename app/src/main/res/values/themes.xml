@@ -17,10 +17,7 @@
     <style name="Theme.CountryList.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-
     </style>
-
-
-<style name="Theme.CountryList.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="Theme.CountryList.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="Theme.CountryList.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 </resources>

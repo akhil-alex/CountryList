@@ -8,13 +8,9 @@
     <dimen name="relative_padding">10dp</dimen>
     <dimen name="image_height">60dp</dimen>
     <dimen name="image_width">90dp</dimen>
-
-
     //action bar
     <dimen name="text_size">18sp</dimen>
     <dimen name="action_padding">10dp</dimen>
-
     //swipe
     <dimen name="swipe_height">0dp</dimen>
-
 </resources>
