@@ -38,7 +38,8 @@ class CountryListFragmentTest {
         scenario.moveToState(Lifecycle.State.CREATED)
         // EventFragment moves from RESUMED -> STARTED -> CREATED
     }
-    @Test fun testreCreateFragment() {
+    @Test
+    fun testReCreateFragment() {
         val scenario = launchFragmentInContainer<CountryListFragment>()
         scenario.recreate()
     }

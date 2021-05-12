@@ -37,7 +37,7 @@ class CountryListFragmentTestOne
         listData.postValue(datarrayList)
     }
     @Test(expected = RuntimeException::class)
-    fun test_throwsException() {
+    fun testThrowsException() {
         Mockito.`when`(countryListFragment.viewLifecycleOwnerLiveData).thenThrow(RuntimeException::class.java)
         countryListFragment.viewLifecycleOwnerLiveData
     }

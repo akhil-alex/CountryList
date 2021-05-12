@@ -60,12 +60,12 @@ class DataViewModelTest {
         )
     }
     @Test(expected = RuntimeException::class)
-    fun test_throwsException() {
+    fun testThrowsException() {
         Mockito.`when`(dataViewModel.getCountries()).thenThrow(RuntimeException::class.java)
         dataViewModel.getCountries()
     }
     @Test
-    fun checksize() {
+    fun checkSize() {
         dataViewModel = Mockito.mock(DataViewModel::class.java)
         val listData: MutableLiveData<List<Row>> = MutableLiveData<List<Row>>()
         val dataArrayList = arrayListOf<Row>()
