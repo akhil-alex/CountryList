@@ -76,20 +76,12 @@ class CountryListFragment:Fragment(), ConnectivityReceiver.ConnectivityReceiverL
         if (datalist.isEmpty()) {
             if (!isConnected) {
                 textNoData.visibility = View.VISIBLE
-                Toast.makeText(
-                    requireContext(),
-                    getString(R.string.plz_check_internet),
-                    Toast.LENGTH_LONG
-                ).show()
+                Toast.makeText(requireContext(), getString(R.string.plz_check_internet), Toast.LENGTH_LONG).show()
             }
         } else {
             textNoData.visibility = View.GONE
             if (!isConnected)
-                Toast.makeText(
-                    requireContext(),
-                    getString(R.string.data_loading),
-                    Toast.LENGTH_LONG
-                ).show()
+                Toast.makeText(requireContext(), getString(R.string.data_loading), Toast.LENGTH_LONG).show()
         }
         if(dataAdapter.itemCount==0) {
             dataAdapter = DataAdapter(datalist)
