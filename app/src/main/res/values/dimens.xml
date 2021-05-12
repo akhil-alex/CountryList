@@ -13,5 +13,9 @@
     <dimen name="text_size">18sp</dimen>
     <dimen name="action_padding">10dp</dimen>
 
+    //swipe
+    <dimen name="swipe_height">0dp</dimen>
+
+
 
 </resources>

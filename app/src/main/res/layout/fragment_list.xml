@@ -30,7 +30,7 @@
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/swipe_height"
         app:layout_constraintTop_toBottomOf="@+id/action_bar"
         android:id="@+id/swipe_refresh">
         <androidx.recyclerview.widget.RecyclerView

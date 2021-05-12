@@ -12,12 +12,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
         fragment= CountryListFragment()
-        replaceFragment(fragment as CountryListFragment)
-    }
-
-    private fun replaceFragment(fragment: CountryListFragment) //fragment replace
-    {
         supportFragmentManager.beginTransaction().replace(R.id.frame_layout,fragment).commit()
     }
-
 }

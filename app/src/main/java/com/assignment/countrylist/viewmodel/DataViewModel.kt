@@ -13,7 +13,7 @@ class DataViewModel(application: Application) : AndroidViewModel(application) {
     private var context = getApplication<Application>().applicationContext
      var listofData: LiveData<List<Row>>  = MutableLiveData()
     private var networkRepository: NetworkRepository = NetworkRepository()
-    private val _title = MutableLiveData<String>()
+     var _title: LiveData<String> = MutableLiveData()
 
     fun getCountries(): LiveData<List<Row>> {
         listofData = networkRepository.loadCountries(context)!!
@@ -23,7 +23,7 @@ class DataViewModel(application: Application) : AndroidViewModel(application) {
     val title: LiveData<String>
         get() = _title
 
-    fun updateActionBarTitle(): LiveData<String> {
-        return networkRepository.loadTitle(context)
+    fun updateActionBarTitle() {
+        _title= networkRepository.loadTitle(context)
     }
 }

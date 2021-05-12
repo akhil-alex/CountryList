@@ -110,7 +110,8 @@ class CountryListFragment:Fragment(), ConnectivityReceiver.ConnectivityReceiverL
 
     private fun updateActionBar() //actionbar title update
     {
-        dataViewModel.updateActionBarTitle().observe(this, {
+        dataViewModel.updateActionBarTitle()
+        dataViewModel._title.observe(this, {
             textActionBar.text = it ?: getString(R.string.app_name)
 
 
